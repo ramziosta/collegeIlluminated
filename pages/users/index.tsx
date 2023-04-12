@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
-// You can replace this with a real API call to fetch users data
-const fetchUsers = async () => {
+interface User {
+  id: number;
+  name: string;
+}
+
+// Replace this with a real API call to fetch users data
+const fetchUsers = async (): Promise<User[]> => {
   return [
     { id: 1, name: 'user1' },
     { id: 2, name: 'user2' },
@@ -10,7 +16,7 @@ const fetchUsers = async () => {
 };
 
 const UsersPage = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +33,9 @@ const UsersPage = () => {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <a href={`/users/${user.name}`}>{user.name}</a>
+            <Link href={`/users/${user.name}`}>
+              <a>{user.name}</a>
+            </Link>
           </li>
         ))}
       </ul>
