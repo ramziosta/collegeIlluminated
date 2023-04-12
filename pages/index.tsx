@@ -1,124 +1,208 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import React, { FC } from 'react';
+import type { Metadata } from 'next'
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './page.module.scss';
+import { students, universities, universityLogo, illustrations, accentImages, socialMedia } from '../constants/data.jsx';
 
-const inter = Inter({ subsets: ['latin'] })
+export const metadata: Metadata = {
+  title: 'college Illuminated',
+  description: 'Welcome to college Illuminated where students connects with students to streamline their college admission',
+};
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+interface Data {
+  id: number;
+  cardHeader: string;
+  cardInfo: string;
+  image: string;
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
 }
+
+interface CardProps {
+  data: Data;
+  width: number;
+  height: number;
+}
+
+const Card: FC<CardProps> = ({ data, width, height }) => {
+  return (
+    <div className={styles.card}>
+      <Image src={data.image} alt="vector-image" className={styles.vectorImage} style={styles} width={width} height={height} />
+      <div className={styles.cardText}>
+        <h4 className="h4" >{data.cardHeader}</h4>
+        <p className={`${styles.cardInfo} body1`}>{data.cardInfo}</p>
+      </div>
+    </div>
+  );
+};
+
+const Home: FC = () => {
+  return (
+    <>
+      <main className={styles.main}>
+        <div className={styles.container} >
+          <div className={styles.mainHeader}>
+
+            <div className={styles.headerText} >
+              <h2 className="h2" >GET INTO THE COLLEGE OF YOUR DREAMS</h2>
+              <p className="body1" >Connect with real students and get their insider perspective on what it takes to get into your dream school.</p>
+            </div>
+
+            <div className={`${styles.btnPrimary} ${styles.btnPrimaryWhite} `}  >
+              <Link href="/contact"
+                className={styles.cta}>GET STARTED
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.imageContainer} >
+          <div className={styles.grid} >
+
+            <div >
+              <Image src={students[0].image} className={`${styles.image} ${styles.image1} `} alt="Student Image" width={436} height={400} />
+            </div>
+
+
+
+            <div >
+              <Image src={students[1].image} alt="Student Image" className={`${styles.image} ${styles.image2} `} width={436} height={200} />
+            </div>
+
+            <div >
+              <Image src={students[2].image} alt="Student Image" className={`${styles.image} ${styles.image3} `} width={436} height={200} />
+            </div>
+
+            <div >
+              <Image src={students[3].image} alt="Student Image" className={`${styles.image} ${styles.image4} `} width={436} height={400} />
+            </div>
+
+          </div>
+
+        </div>
+
+      </main>
+
+      <section className={styles.section1}>
+
+        <div className={styles.collegeIcons}>
+          <div className={styles.iconContainer} >
+            {universities.map((item) => (
+              <Image src={item.image} key={item.id} alt={item.alt} className={`${styles.icons} ${styles.icon}`}
+                width="200"
+                height="200" />
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.iconText}>
+          <div className={styles.textContainer} >
+            <h2 className="h2" >FIND YOUR COMPETATIVE EDGE</h2>
+            <p className="body1">Stand out among your peers with affordable and personalized guidance from individuals who have been in your shoes.</p>
+            <div className={`${styles.btnPrimary} ${styles.btnPrimaryYellow} `} >
+              <Link href="/contact"
+                className={styles.cta}>GET STARTED
+              </Link>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section className={styles.section2} >
+
+        <div className={`${styles.headerText} ${styles.center}`} >
+          <h2 className="h2" >WHY COLLEGE ILLUMINATED:</h2>
+        </div>
+
+        {illustrations.map((item) => (
+          <Card key={item.id} data={item} width={150} height={150} />
+        ))}
+
+        <div className={`${styles.btnPrimary} ${styles.btnPrimaryDark} `} >
+          <Link href="/contact"
+            className={styles.ctaDark}>GET STARTED
+          </Link>
+        </div>
+
+
+      </section>
+
+      <section className={styles.section3}>
+        <div className={styles.collegeNames}>
+          <Image src={universityLogo[0].image} alt={universityLogo[0].alt} className={styles.icons} width={180} height={46} />
+          <Image src={universityLogo[1].image} alt={universityLogo[1].alt} className={styles.icons} width={150} height={46} />
+          <Image src={universityLogo[2].image} alt={universityLogo[2].alt} className={styles.icons} width={180} height={46} />
+          <Image src={universityLogo[3].image} alt={universityLogo[3].alt} className={styles.icons} width={250} height={46} />
+        </div>
+
+        <div className={`${styles.section3Text}`} >
+          <h3 className='h3'>
+            GAIN AN UNFAIR ADVANTAGE AGAINST ALL PEERS WITH AFFORDABLE YEAR-LONG CONSULTING.
+          </h3>
+        </div>
+        <div className={`${styles.btnPrimary} ${styles.btnPrimaryYellow} `} >
+          <Link href="/contact"
+            className={styles.cta}>GET STARTED
+          </Link>
+        </div>
+      </section>
+
+      <section className={styles.section4}>
+
+        <div className={styles.mobile} >
+          <Image src={accentImages[0].image} alt="Social Media" width={265} height={540} />
+        </div>
+
+        <div className={styles.socialMediaContainer} >
+
+          <div className={styles.socialMediaBlock} >
+
+            <div className={styles.socialMediaTextNArrow} >
+              <Image src={accentImages[1].image} alt="arrow" className={styles.accentArrow} width={90} height={30} />
+              <h2 >JOIN A COMMUNITY OF ##### STUDENTS!</h2>
+            </div>
+            <div className={styles.iconBlock} >
+
+              <div className={styles.socialMedia} >
+                <Image src={socialMedia[0].image} alt={socialMedia[0].alt} className={styles.socialMediaIcons} width={40} height={40} />
+                <Image src={socialMedia[1].image} alt={socialMedia[1].alt} className={styles.socialMediaIcons} width={40} height={40} />
+                <Image src={socialMedia[2].image} alt={socialMedia[2].alt} className={styles.socialMediaIcons} width={40} height={40} />
+                <Image src={socialMedia[3].image} alt={socialMedia[3].alt} className={styles.socialMediaIcons} width={40} height={40} />
+                <Image src={socialMedia[4].image} alt={socialMedia[4].alt} className={styles.socialMediaIcons} width={40} height={40} />
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section className={styles.section5}>
+
+        <div className={styles.subscribe} >
+          <h2>GAIN ACCESS TO 46 MOST COMMON INTERVIEW QUESTIONS</h2>
+
+         
+            <label htmlFor="email" className={styles.email} >Email</label>
+            <input type="email" name="email" placeholder='example@gmail.com' className={styles.input} />
+            <div className={`${styles.btnPrimarySubmit} ${styles.btnPrimaryDarkSubmit} `} >
+              <Link href="/contact"
+                className={styles.ctaDark}>SEND ME THE GUIDE
+              </Link>
+            </div>
+          </div>
+    
+
+        <div>
+          <Image src={accentImages[2].image} alt="Accepted Image" className="icons" width={450} height={500} />
+        </div>
+
+      </section>
+
+    </>
+  );
+}
+
+export default Home;

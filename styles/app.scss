@@ -1,0 +1,759 @@
+/*  Global and branding Styles */
+
+/* font regular */
+@font-face {
+  font-family: "Work Sans";
+  src: url("../public/assets/fonts/Work_Sans/static/WorkSans-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* font regular bold */
+@font-face {
+  font-family: "Work Sans-Bold";
+  src: url("../public/assets/fonts/Work_Sans/static/WorkSans-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+/* font regular italic */
+@font-face {
+  font-family: "Work Sans-Italic";
+  src: url("../public/assets/fonts/Work_Sans/static/WorkSans-Italic.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+/* font medium */
+@font-face {
+  font-family: "Work Sans-Medium";
+  src: url("../public/assets/fonts/Work_Sans/static/WorkSans-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+/* font medium italic */
+@font-face {
+  font-family: "Sans-Medium-Italic";
+  src: url("../public/assets/fonts/Work_Sans/static/WorkSans-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+/* font semi-bold */
+@font-face {
+  font-family: "Work Sans-SemiBold";
+  src: url("../public/assets/fonts//Work_Sans/static/WorkSans-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #ffc117;
+  --primary-hover-color: #ef9205;
+  --primary-200: #ffefc6;
+  --secondary-color: #ff834e;
+  --secondary-100: #fff5f1;
+  --third-color: #ff5959;
+  --tetriary-100: #fff3f3;
+  --dark-color: #051b2c;
+  --grey-700: #5d6975;
+  --grey-400: #B9C2CA;
+  --grey-0: #ffffff;
+
+  --font-family-work-sans: "Work Sans", sans-serif;
+  --font-family-work-sans-italic: "Work Sans-Italic", sans-serif;
+  --font-family-work-sans-bold: "Work Sans-Bold", sans-serif;
+  --font-family-work-sans-medium: "work Sans-Medium", sans-serif;
+  --font-family-work-sans-medium-italic: "Work Sans-Medium-Italic", sans-serif;
+  --font-family-work-sans-semibold: "Work Sans-SemiBold", sans-serif;
+}
+
+.header {
+  background-image: url("../public/assets/gradient8.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+  text-transform: capitalized;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-family: var(--font-family-work-sans-extra-bold);
+  color: var(--dark-color);
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: var(--font-family-work-sans-bold);
+  font-weight: 800;
+  color: var(--dark-color);
+}
+
+h3 {
+  font-size: 2.5rem;
+  font-family: var(--font-family-work-sans-bold);
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-family: var(--font-family-work-sans-bold);
+}
+
+h5 {
+  font-size: 1rem;
+  font-family: var(--font-family-work-sans);
+  font-weight: 600;
+  line-height: 1.173rem;
+}
+
+.body1 {
+  font-size: 1rem;
+  font-family: var(--font-family-work-sans-medium);
+  line-height: 1.5rem;
+}
+
+.body2 {
+  font-size: 0.875rem;
+  font-family: var(--font-family-work-sans-medium-italic);
+}
+
+.italic {
+  font-family: var(--font-family-work-sans-medium-italic);
+}
+
+.labels {
+  font-size: 0.563rem;
+  font-family: var(--font-family-work-sans-semibold);
+}
+
+.btn-primary {
+  /* Type=Primary, State=Default */
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  width: 10.375rem;
+  height: 3.375rem;
+
+  /* Primary/500 */
+
+  background: #ffc117;
+  border-radius: 6.25rem;
+  &:hover {
+    background: var(--primary-color);
+    text-decoration: none;
+  }
+}
+
+.btn-primary-hover {
+  /* Type=Default, State=Hover */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  width: 10.375rem;
+  height: 3.375rem;
+
+  /* Primary/700 */
+
+  background: #ef9205;
+  border-radius: 6.25rem;
+}
+
+.btn-primary-disabled {
+  /* Type=Primary, State=Disabled */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 0.5rem;
+  top: 8.25rem;
+
+  /* Primary/500 */
+
+  background: #ffc117;
+  opacity: 0.3;
+  border-radius: 6.25rem;
+}
+
+.btn-primary-focused {
+  /* Type=Primary, State=Focused */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 1rem;
+  top: 12.125rem;
+
+  /* Primary/500 */
+
+  background: #ffc117;
+  /* Grey/1000 */
+
+  border: 1px solid #051b2c;
+  border-radius: 6.25rem;
+}
+
+.btn-secondary {
+  /* Type=Secondary, State=Default */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 13.75rem;
+  top: 1rem;
+
+  /* Primary/200 */
+
+  background: #ffefc6;
+  border-radius: 6.25rem;
+}
+
+.btn-secondary-hover {
+  /* Type=Secondary, State=Hover */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 13.75rem;
+  top: 4.375rem;
+
+  /* Primary/300 */
+
+  background: #ffe293;
+  border-radius: 6.25rem;
+}
+
+.btn-secondary-disabled {
+  /* Type=Secondary, State=Disabled */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 13.75rem;
+  top: 8.25rem;
+
+  /* Primary/200 */
+
+  background: #ffefc6;
+  opacity: 0.3;
+  border-radius: 6.25rem;
+}
+
+.btn-secondary-focused {
+  /* Type=Secondary, State=Focused */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 13.75rem;
+  top: 194px;
+
+  /* Primary/200 */
+
+  background: #ffefc6;
+  /* Grey/1000 */
+
+  border: 1px solid #051b2c;
+  border-radius: 6.25rem;
+}
+
+.btn-dark-primary {
+  /* Buttons */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  gap: 0.25rem;
+
+  width: 9.625rem;
+  height: 2.75rem;
+
+  /* Grey/1000 */
+
+  background: #051b2c;
+  border-radius: 6.25rem;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.btn-dark-primary-hover {
+  /* Type=Default, State=Hover */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  gap: 0.25rem;
+
+  width: 9.625rem;
+  height: 2.75rem;
+
+  /* Grey/800 */
+
+  background: #424d57;
+  border-radius: 6.25rem;
+}
+
+.btn-dark-primary-disabled {
+  /* Type=Primary, State=Disabled */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 1rem;
+  top: 452px;
+
+  /* Grey/1000 */
+
+  background: #051b2c;
+  opacity: 0.3;
+  border-radius: 6.25rem;
+}
+
+.btn-dark-primary-focused {
+  /* Type=Primary, State=Focused */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+}
+
+.btn-dark-Secondary {
+  /* Type=Primary, State=Focused */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+}
+
+.btn-dark-Secondary-hover {
+  /* Type=Secondary, State=Hover */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 13.75rem;
+  top: 386px;
+
+  /* Grey/500 */
+
+  background: #8894a2;
+  border-radius: 6.25rem;
+}
+
+.btn-dark-Secondary-disabled {
+  /* Type=Secondary, State=Disabled */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 13.75rem;
+  top: 441rem;
+
+  /* Grey/600 */
+
+  background: #7e8a96;
+  opacity: 0.3;
+  border-radius: 6.25rem;
+}
+
+.btn-dark-Secondary-focused {
+  /* Type=Secondary, State=Focused */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 13.75rem;
+  top: 510px;
+
+  /* Grey/600 */
+
+  background: #7e8a96;
+  /* Grey/0 */
+
+  border: 1px solid #ffffff;
+  border-radius: 6.25rem;
+}
+
+.btn-light-primary {
+  /* Type=Primary, State=Default */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 1rem;
+  top: 634px;
+
+  /* Grey/0 */
+
+  background: #ffffff;
+  border-radius: 6.25rem;
+}
+
+.btn-light-primary-hovered {
+  /* Type=Default, State=Hover */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 21rem;
+  gap: 1rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 1rem;
+  top: 696px;
+
+  /* Grey/300 */
+
+  background: #cbd1d7;
+  border-radius: 6.25rem;
+}
+
+.btn-light-primary-disabled {
+  /* Type=Primary, State=Disabled */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 1rem;
+  top: 751rem;
+
+  /* Grey/0 */
+
+  background: #ffffff;
+  opacity: 0.2;
+  border-radius: 6.25rem;
+}
+
+.btn-light-primary-focused {
+  /* Type=Primary, State=Focused */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 1rem;
+  top: 820px;
+
+  /* Grey/0 */
+
+  background: #ffffff;
+  /* Grey/1000 */
+
+  border: 1px solid #051b2c;
+  border-radius: 6.25rem;
+}
+
+.btn-light-Secondary {
+  /* Type=Secondary, State=Default */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 202px;
+  top: 634px;
+
+  /* Grey/400 */
+
+  background: #b9c2ca;
+  border-radius: 6.25rem;
+}
+
+.btn-light-Secondary-hovered {
+  /* Type=Secondary, State=Hover */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 202px;
+  top: 696px;
+
+  /* Grey/500 */
+
+  background: #8894a2;
+  border-radius: 6.25rem;
+}
+
+.btn-light-Secondary-disabled {
+  /* Type=Secondary, State=Disabled */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 202px;
+  top: 751rem;
+
+  /* Grey/400 */
+
+  background: #b9c2ca;
+  opacity: 0.2;
+  border-radius: 6.25rem;
+}
+
+.btn-light-Secondary-focused {
+  /* Type=Secondary, State=Focused */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  gap: 0.5rem;
+
+  position: absolute;
+  width: 10.375rem;
+  height: 3.375rem;
+  left: 202px;
+  top: 820px;
+
+  /* Grey/400 */
+
+  background: #b9c2ca;
+  /* Grey/1000 */
+
+  border: 1px solid #051b2c;
+  border-radius: 6.25rem;
+}
+
+.btn-font {
+  width: 6.812rem;
+  height: 1.188rem;
+
+  /* H5 */
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.188rem;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  /* Grey/1000 */
+
+  color: #051b2c;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
