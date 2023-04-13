@@ -58,22 +58,22 @@ const Home: FC = () => {
         <div className={styles.imageContainer} >
           <div className={styles.grid} >
 
-            <div >
-              <Image src={students[0].image} className={`${styles.image} ${styles.image1} `} alt="Student Image" width={436} height={400} />
+            <div className={styles.image1}>
+              <Image src={students[0].image} className={`${styles.image} `} alt="Student Image" width={436} height={400} />
             </div>
 
 
 
-            <div >
-              <Image src={students[1].image} alt="Student Image" className={`${styles.image} ${styles.image2} `} width={436} height={200} />
+            <div className={styles.image2} >
+              <Image src={students[1].image} alt="Student Image" className={`${styles.image} `} width={436} height={200} />
             </div>
 
-            <div >
-              <Image src={students[2].image} alt="Student Image" className={`${styles.image} ${styles.image3} `} width={436} height={200} />
+            <div className={styles.image3} >
+              <Image src={students[2].image} alt="Student Image" className={`${styles.image}`} width={436} height={200} />
             </div>
 
-            <div >
-              <Image src={students[3].image} alt="Student Image" className={`${styles.image} ${styles.image4} `} width={436} height={400} />
+            <div className={styles.image4} >
+              <Image src={students[3].image} alt="Student Image" className={`${styles.image} `} width={436} height={400} />
             </div>
 
           </div>
