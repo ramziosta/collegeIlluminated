@@ -44,7 +44,7 @@ const Home = () => {
   const [email, setEmail] = useState('');
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Sign in anonymously
