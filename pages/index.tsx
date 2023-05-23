@@ -9,6 +9,9 @@ import { UploadTaskSnapshot, ref } from 'firebase/storage';
 import { uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { UserCredential, signInAnonymously } from 'firebase/auth';
 import { collection, addDoc } from 'firebase/firestore';
+import { useSpring, animated } from '@react-spring/web'
+
+
 export const metadata: Metadata = {
   title: 'college Illuminated',
   description: 'Welcome to college Illuminated where students connects with students to streamline their college admission',
@@ -39,6 +42,20 @@ const Card: FC<CardProps> = ({ data, width, height }) => {
     </div>
   );
 };
+
+const Number = ({ n }) => {
+  const { number } = useSpring({
+    from: {number: 0},
+        to: {number: n},
+        delay: 200,
+        config: { mass: 1, tension: 20, friction: 10 },
+      });
+      return (
+        <animated.div>
+          {number.to((n)=> n.toFixed(0))}
+        </animated.div>
+      );
+}
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -190,7 +207,7 @@ const Home = () => {
 
             <div className={styles.socialMediaTextNArrow} >
               <Image src={accentImages[1].image} alt="arrow" className={styles.accentArrow} width={90} height={30} />
-              <h2 >Join a community of ##### students!</h2>
+              <h2 >Join a community of <Number n={100} /> students!</h2>
             </div>
             <div className={styles.iconBlock} >
 
