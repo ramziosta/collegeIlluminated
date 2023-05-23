@@ -17,6 +17,18 @@
     display: flex;
     justify-content: center;
   }
+
+  // Styles for smaller tablets (max-width: 744px)
+  @media (max-width: 744px) {
+      .container {
+        flex-direction: column;
+      }
+
+    
+  }
+
+
+}
   .mainHeader {
     display: flex;
     flex-direction: column;
@@ -67,7 +79,7 @@
   .image4 {
     grid-area: 2 / 2 / 4 / 3;
   }
-}
+
 
 .btnPrimary {
   /* Type=Primary, State=Default */
@@ -340,4 +352,9 @@
     color: var(--grey-0);
     font-family: var(--font-family-work-sans-medium);
   }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
 }

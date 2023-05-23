@@ -1,7 +1,7 @@
 export const illustrations = [
-    { id: 1, cardHeader: "REAL ADVICE FROM REAL STUDENTS", cardInfo: "There's no substiute for real life experience, and our students offer personal insights on what it takes to get into your dream school.", image: "/assets/Meeting.png", alt: "Accent Image" },
-    { id: 2, cardHeader: "GET QUESTIONS ANSWERED", cardInfo: "Get tips on writing your personal statement, guidance on extracurricular activities, or plain and simple one-on-one advice.", image: "/assets/Conversation.png", alt: "Accent Image" },
-    { id: 3, cardHeader: "BYE BYE ANXIETY", cardInfo: "Network with college students from top universities across the country and gain insights to help you make informed decisions about your future.", image: "/assets/Boombox.png", alt: "Accent Image" },
+    { id: 1, cardHeader: "Real advice from real students", cardInfo: "There's no substiute for real life experience, and our students offer personal insights on what it takes to get into your dream school.", image: "/assets/Meeting.png", alt: "Accent Image" },
+    { id: 2, cardHeader: "Get questions answered", cardInfo: "Get tips on writing your personal statement, guidance on extracurricular activities, or plain and simple one-on-one advice.", image: "/assets/Conversation.png", alt: "Accent Image" },
+    { id: 3, cardHeader: "Bye bye anxiety", cardInfo: "Network with college students from top universities across the country and gain insights to help you make informed decisions about your future.", image: "/assets/Boombox.png", alt: "Accent Image" },
     ];
   export const universities = [
     { id: 1, cardHeader: "", cardInfo: "", image: "/assets/harvard.png", alt: "university shield" },

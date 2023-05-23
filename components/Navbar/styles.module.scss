@@ -12,7 +12,8 @@
   position: sticky;
   display: flex;
   flex-direction: row;
-  height: 80px;
+  height: 60px;
+ margin-top: 15px;
   align-items: center;
   justify-content: space-evenly;
   padding: 0 1rem;
@@ -51,6 +52,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
 }
 
 .userLinks {
@@ -87,3 +89,84 @@
     text-decoration: none;
   }
 }
+
+.hamburgerMenu {
+  display: none;
+}
+
+.mobileNavLinks {
+  display: none;
+}
+
+@media (max-width: 744px) {
+  .navbar {
+   padding-top: 10px;
+    justify-content: space-between;
+    height: 40px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .navLinks2 {
+    display: block;
+  }
+
+  .userLinks {
+    display: none;
+  }
+
+  .hamburgerMenu {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .mobileLeft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 110px;
+    
+  }
+
+  .mobileSignIn{
+    padding-top: 5px;
+  }
+
+  .mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    font-family: var(--font-family-work-sans-semibold);
+    z-index: 200;
+    padding: 1rem;
+
+    ul {
+      flex-direction: column;
+      align-items:flex-start;
+      list-style-type: none;
+      gap: 1rem;
+    }
+
+    .btnPrimary {
+      margin-top: 1rem;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+.hamburger {
+  font-size: 2rem;
+}
+
+}
+

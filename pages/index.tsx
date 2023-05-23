@@ -1,10 +1,14 @@
-import React, { FC } from 'react';
+import React, { useState, FC } from 'react';
 import type { Metadata } from 'next'
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.scss';
 import { students, universities, universityLogo, illustrations, accentImages, socialMedia } from '../constants/data.jsx';
-
+import { auth, firestore, storage } from '../server/firebase';
+import { UploadTaskSnapshot, ref } from 'firebase/storage';
+import { uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { UserCredential, signInAnonymously } from 'firebase/auth';
+import { collection, addDoc } from 'firebase/firestore';
 export const metadata: Metadata = {
   title: 'college Illuminated',
   description: 'Welcome to college Illuminated where students connects with students to streamline their college admission',
@@ -36,15 +40,41 @@ const Card: FC<CardProps> = ({ data, width, height }) => {
   );
 };
 
-const Home: FC = () => {
+const Home = () => {
+  const [email, setEmail] = useState('');
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Sign in anonymously
+    const userCredential = await signInAnonymously(auth);
+    const user = userCredential.user;
+    const folderName = email;
+
+
+    
+       
+
+    const res = await addDoc(collection(firestore, "newsletter emails"), {
+     
+      email: email,
+    
+    });
+
+    console.log(res);
+    await auth.signOut();
+  };
+
   return (
     <>
       <main className={styles.main}>
+
         <div className={styles.container} >
           <div className={styles.mainHeader}>
 
             <div className={styles.headerText} >
-              <h2 className="h2" >GET INTO THE COLLEGE OF YOUR DREAMS</h2>
+              <h2 className="h2" >Get into the college of your dreams!</h2>
               <p className="body1" >Connect with real students and get their insider perspective on what it takes to get into your dream school.</p>
             </div>
 
@@ -55,6 +85,7 @@ const Home: FC = () => {
             </div>
           </div>
         </div>
+
         <div className={styles.imageContainer} >
           <div className={styles.grid} >
 
@@ -96,11 +127,11 @@ const Home: FC = () => {
 
         <div className={styles.iconText}>
           <div className={styles.textContainer} >
-            <h2 className="h2" >FIND YOUR COMPETATIVE EDGE</h2>
+            <h2 className="h2" >Find Your Competitive Edge</h2>
             <p className="body1">Stand out among your peers with affordable and personalized guidance from individuals who have been in your shoes.</p>
             <div className={`${styles.btnPrimary} ${styles.btnPrimaryYellow} `} >
               <Link href="/contact"
-                className={styles.cta}>GET STARTED
+                className={styles.cta}>Get Started
               </Link>
             </div>
           </div>
@@ -111,7 +142,7 @@ const Home: FC = () => {
       <section className={styles.section2} >
 
         <div className={`${styles.headerText} ${styles.center}`} >
-          <h2 className="h2" >WHY COLLEGE ILLUMINATED:</h2>
+          <h2 className="h2" >Why College Illuminated:</h2>
         </div>
 
         {illustrations.map((item) => (
@@ -120,7 +151,7 @@ const Home: FC = () => {
 
         <div className={`${styles.btnPrimary} ${styles.btnPrimaryDark} `} >
           <Link href="/contact"
-            className={styles.ctaDark}>GET STARTED
+            className={styles.ctaDark}>Get Started
           </Link>
         </div>
 
@@ -137,12 +168,12 @@ const Home: FC = () => {
 
         <div className={`${styles.section3Text}`} >
           <h3 className='h3'>
-            GAIN AN UNFAIR ADVANTAGE AGAINST ALL PEERS WITH AFFORDABLE YEAR-LONG CONSULTING.
+            Gain an unfair advantage against all peers with affordabe year-long consulting.
           </h3>
         </div>
         <div className={`${styles.btnPrimary} ${styles.btnPrimaryYellow} `} >
           <Link href="/contact"
-            className={styles.cta}>GET STARTED
+            className={styles.cta}>Get Started
           </Link>
         </div>
       </section>
@@ -159,7 +190,7 @@ const Home: FC = () => {
 
             <div className={styles.socialMediaTextNArrow} >
               <Image src={accentImages[1].image} alt="arrow" className={styles.accentArrow} width={90} height={30} />
-              <h2 >JOIN A COMMUNITY OF ##### STUDENTS!</h2>
+              <h2 >Join a community of ##### students!</h2>
             </div>
             <div className={styles.iconBlock} >
 
@@ -182,18 +213,33 @@ const Home: FC = () => {
       <section className={styles.section5}>
 
         <div className={styles.subscribe} >
-          <h2>GAIN ACCESS TO 46 MOST COMMON INTERVIEW QUESTIONS</h2>
+          <h2>Gain access to 46 most common interview questions</h2>
 
-         
+          <form
+            onSubmit={handleSubmit}
+            target="_blank"
+            className={styles.form}>
             <label htmlFor="email" className={styles.email} >Email</label>
-            <input type="email" name="email" placeholder='example@gmail.com' className={styles.input} />
-            <div className={`${styles.btnPrimarySubmit} ${styles.btnPrimaryDarkSubmit} `} >
-              <Link href="/contact"
-                className={styles.ctaDark}>SEND ME THE GUIDE
-              </Link>
-            </div>
-          </div>
-    
+
+            <input
+                  className={styles.input}
+                  type="email"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="example@gmail.com"
+                  required
+                  name="Email"
+                  aria-describedby="Email"
+                />
+           
+              <button className={`${styles.btnPrimarySubmit} ${styles.btnPrimaryDarkSubmit} `} type="submit"
+                value="send" 
+                >Send Me The Guide
+              </button>
+         
+          </form>
+        </div>
+
 
         <div>
           <Image src={accentImages[2].image} alt="Accepted Image" className="icons" width={450} height={500} />
