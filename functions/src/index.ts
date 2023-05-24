@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: functions.config().email.user,
-    pass: "iyqpckhkmggzqufn",
+    pass: process.env.NEXT_FIREBASE_PASSWORD,
   },
 });
 
@@ -41,7 +41,7 @@ export const sendEmail = functions.firestore
         from: functions.config().email.user,
         to: email,
         subject: "Here is your document",
-        text: "Hello from Firebase!",
+        text: "Thank You for subscribing!",
         attachments: [
           {
             filename: "RamziOstaResume2023.pdf",
