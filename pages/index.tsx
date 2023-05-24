@@ -45,16 +45,16 @@ const Card: FC<CardProps> = ({ data, width, height }) => {
 
 const Number = ({ n }) => {
   const { number } = useSpring({
-    from: {number: 0},
-        to: {number: n},
-        delay: 200,
-        config: { mass: 1, tension: 20, friction: 10 },
-      });
-      return (
-        <animated.div>
-          {number.to((n)=> n.toFixed(0))}
-        </animated.div>
-      );
+    from: { number: 0 },
+    to: { number: n },
+    delay: 200,
+    config: { mass: 1, tension: 20, friction: 10 },
+  });
+  return (
+    <animated.div>
+      {number.to((n) => n.toFixed(0))}
+    </animated.div>
+  );
 }
 
 const Home = () => {
@@ -70,16 +70,17 @@ const Home = () => {
     const folderName = email;
 
 
-    
-       
+
+
 
     const res = await addDoc(collection(firestore, "newsletter emails"), {
-     
+
       email: email,
-    
+
     });
 
     console.log(res);
+    console.log("Email sent");
     await auth.signOut();
   };
 
@@ -96,7 +97,7 @@ const Home = () => {
             </div>
 
             <div className={`${styles.btnPrimary} ${styles.btnPrimaryWhite} `}  >
-              <Link href="/contact"
+              <Link href="/signup"
                 className={styles.cta}>GET STARTED
               </Link>
             </div>
@@ -109,8 +110,6 @@ const Home = () => {
             <div className={styles.image1}>
               <Image src={students[0].image} className={`${styles.image} `} alt="Student Image" width={436} height={400} />
             </div>
-
-
 
             <div className={styles.image2} >
               <Image src={students[1].image} alt="Student Image" className={`${styles.image} `} width={436} height={200} />
@@ -147,7 +146,7 @@ const Home = () => {
             <h2 className="h2" >Find Your Competitive Edge</h2>
             <p className="body1">Stand out among your peers with affordable and personalized guidance from individuals who have been in your shoes.</p>
             <div className={`${styles.btnPrimary} ${styles.btnPrimaryYellow} `} >
-              <Link href="/contact"
+              <Link href="/findAMentor"
                 className={styles.cta}>Get Started
               </Link>
             </div>
@@ -167,8 +166,8 @@ const Home = () => {
         ))}
 
         <div className={`${styles.btnPrimary} ${styles.btnPrimaryDark} `} >
-          <Link href="/contact"
-            className={styles.ctaDark}>Get Started
+          <Link href="pricing"
+            className={styles.ctaDark}>Learn More
           </Link>
         </div>
 
@@ -189,7 +188,7 @@ const Home = () => {
           </h3>
         </div>
         <div className={`${styles.btnPrimary} ${styles.btnPrimaryYellow} `} >
-          <Link href="/contact"
+          <Link href="/signup"
             className={styles.cta}>Get Started
           </Link>
         </div>
@@ -239,21 +238,21 @@ const Home = () => {
             <label htmlFor="email" className={styles.email} >Email</label>
 
             <input
-                  className={styles.input}
-                  type="email"
-                  id="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="example@gmail.com"
-                  required
-                  name="Email"
-                  aria-describedby="Email"
-                />
-           
-              <button className={`${styles.btnPrimarySubmit} ${styles.btnPrimaryDarkSubmit} `} type="submit"
-                value="send" 
-                >Send Me The Guide
-              </button>
-         
+              className={styles.input}
+              type="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@gmail.com"
+              required
+              name="Email"
+              aria-describedby="Email"
+            />
+
+            <button className={`${styles.btnPrimarySubmit} ${styles.btnPrimaryDarkSubmit} `} type="submit"
+              value="send"
+            >Send Me The Guide
+            </button>
+
           </form>
         </div>
 
